@@ -1,5 +1,12 @@
 services:
   frontend:
-    image: ghcr.io/trendy-sand-dance/frontend:main
+    build:
+      context: ${PATH_BUILD_FRONTEND}
+      # TODO Make production target work on frontend.
+      target: development
+    image: ${PATH_IMAGE_FRONTEND}
+    environment:
+      LISTEN_PORT: 3000
+      LISTEN_ADDRESS: '0.0.0.0'
     ports:
       - "8001:3000"

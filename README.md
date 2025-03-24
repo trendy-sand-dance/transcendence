@@ -4,9 +4,34 @@
 This repo will setup and run the services making up the transcendence project.
 </div>
 
+> [!WARNING]
+> This repo is not ready for use yet, I still need to add the actual mekanism to swap out the images.
+
 ## About
-It currently only contains one `docker_compose.yml` file which pulls down all the latest images.
-In the future we can run integration tests in this repo aswell.
+It currently only contains one `docker-compose.yml` file which pulls down the latest images.
+For local building local images you can set the paths `set-env.sh` so docker can build them.
+
+In the future we can run integration tests in this repo as well.
+
+## Dev usage
+Setup the paths to the locally cloned repos in a file called `set-env.sh`.
+> [!NOTE]
+> This file does not exist because it will be personal for everyone's use case, you can use `set-env.sh.example` as a starting point to create your own.
+
+Before you run any `docker compose` commands make sure to `source` the file first, this will load all the environment variables into **your** environment.
+```
+source set-env.sh
+```
+
+After that you can go ahead and hit em' with the classic.
+```
+docker compose build
+```
+```
+docker compose up
+```
+
+T.B.A
 
 
 
