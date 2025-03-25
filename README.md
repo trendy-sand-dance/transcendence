@@ -13,7 +13,20 @@ For local building local images you can set the paths `set-env.sh` so docker can
 
 In the future we can run integration tests in this repo as well.
 
-## Dev usage
+## Table of contents
+
+- ⚡️[Running](#features)
+  - [Dev usage](#dev-usage)
+- ⚙️ [Repo configuration](#repo-configuration)
+  - [Rebases instead of merge](#use-rebases-instead-of-merges)
+  - [Commit to main with PRs](#only-commit-on-main-using-prs)
+- 🛠️ [Issues](#issues)
+  - [Docker unauthenticated](#docker-unauthenticated)
+  - [Package not building](#package-not-building)
+
+## ⚡️ Running
+
+### Dev usage
 Setup the paths to the locally cloned repos in a file called `set-env.sh`.
 > [!NOTE]
 > This file does not exist because it will be personal for everyone's use case, you can use `set-env.sh.example` as a starting point to create your own.
@@ -22,7 +35,6 @@ Before you run any `docker compose` commands make sure to `source` the file firs
 ```
 source set-env.sh
 ```
-
 After that you can go ahead and hit em' with the classic.
 ```
 docker compose build
@@ -31,11 +43,8 @@ docker compose build
 docker compose up
 ```
 
-T.B.A
 
-
-
-## Repo configuration
+## ⚙️  Repo configuration
 After you've created a repo based on this template you should setup the branch rules.
 #### Use rebases instead of merges
 1. In your repo go to `Settings -> General`, scroll down to `Pull Requests` and disable `Allow merge commits`.
@@ -48,6 +57,18 @@ After you've created a repo based on this template you should setup the branch r
 4. Scroll further down to `Rules` and enable `Require a pull request before merging`.
 5. Expand the `Additional settings` the set `Allowed merge methods` to **Squash** and **Rebase**.
 
-#### Fix package not building
-This is because after you fork github automagically disables any actions, in order to enable them just goto the `Actions` tab in the repo's homepage.
+
+## 🛠️ Issues
+
+### Docker unauthenticated
+```
+docker: unauthorized: unauthorized
+```
+Not sure why this happens, all of your packages are `publicly` available. I fixed it by logging out of any github docker repos using.
+```
+docker logout ghcr.io
+```
+
+#### Package not building
+This is because after you fork github automagically disables any actions, in order to enable them just go to the `Actions` tab in the repo's homepage.
 
