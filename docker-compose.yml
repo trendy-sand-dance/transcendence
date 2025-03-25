@@ -2,11 +2,18 @@ services:
   frontend:
     build:
       context: ${PATH_BUILD_FRONTEND}
-      # TODO Make production target work on frontend.
+      # NOTE set hit
       target: development
     image: ${PATH_IMAGE_FRONTEND}
     environment:
-      LISTEN_PORT: 3000
+      LISTEN_PORT: 3001
       LISTEN_ADDRESS: '0.0.0.0'
     ports:
-      - "8001:3000"
+      - "8001:3001"
+
+    volumes:
+      - ${PATH_BUILD_FRONTEND}/src:/app/src
+      # TODO: Check if we actually need this node_modules line here.
+      - /app/node_modules  # Prevent overwriting node_modules
+      - ${PATH_BUILD_FRONTEND}/public:/app/public
+      - ${PATH_BUILD_FRONTEND}/client:/app/client

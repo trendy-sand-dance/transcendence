@@ -4,8 +4,6 @@
 This repo will setup and run the services making up the transcendence project.
 </div>
 
-> [!WARNING]
-> This repo is not ready for use yet, I still need to add the actual mekanism to swap out the images.
 
 ## About
 It currently only contains one `docker-compose.yml` file which pulls down the latest images.
