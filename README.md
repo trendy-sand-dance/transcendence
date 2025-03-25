@@ -5,6 +5,11 @@ This repo will setup and run the services making up the transcendence project.
 </div>
 
 
+# TODO / Reading list
+- https://docs.docker.com/reference/compose-file/interpolation/
+- https://docs.docker.com/reference/compose-file/include/
+
+
 ## About
 It currently only contains one `docker-compose.yml` file which pulls down the latest images.
 For local building local images you can set the paths `set-env.sh` so docker can build them.
