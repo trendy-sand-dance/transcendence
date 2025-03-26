@@ -4,7 +4,7 @@ services:
     build:
       context: "${PATH_BUILD_FRONTEND}"
       target: development
-    image: ${PATH_IMAGE_FRONTEND}
+    image: "${PATH_IMAGE_FRONTEND}"
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
@@ -16,7 +16,7 @@ services:
     build:
       context: "${PATH_BUILD_USER_MANAGEMENT}"
       target: development
-    image: ${PATH_IMAGE_USER_MANAGEMENT}
+    image: "${PATH_IMAGE_USER_MANAGEMENT}"
     environment:
       LISTEN_PORT: 3001
       LISTEN_ADDRESS: '0.0.0.0'
