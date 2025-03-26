@@ -1,9 +1,8 @@
 services:
   frontend:
-    ${CONFIG_STR}
+    ${CONFIG_STR_FRONTEND}
     build:
-      context: ${PATH_BUILD_FRONTEND}
-      # The only instance were we'd wanna run it in dev mode would be when running locally.
+      context: "${PATH_BUILD_FRONTEND}"
       target: development
     image: ${PATH_IMAGE_FRONTEND}
     environment:
@@ -11,3 +10,15 @@ services:
       LISTEN_ADDRESS: '0.0.0.0'
     ports:
       - "8000:3000"
+
+  user-management:
+    ${CONFIG_STR_USER_MANAGEMENT}
+    build:
+      context: "${PATH_BUILD_USER_MANAGEMENT}"
+      target: development
+    image: ${PATH_IMAGE_USER_MANAGEMENT}
+    environment:
+      LISTEN_PORT: 3001
+      LISTEN_ADDRESS: '0.0.0.0'
+    ports:
+      - "8001:3001"

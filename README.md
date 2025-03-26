@@ -38,12 +38,12 @@ Before you run any `docker compose` commands make sure to `source` the file firs
 ```
 source set-env.sh
 ```
-After that you can go ahead and hit em' with the classic.
+After that you can go ahead and hit em' the following command.
 ```
-docker compose build
+cat docker-compose.yml | envsubst | docker compose -f /dev/stdin build
 ```
 ```
-docker compose up
+cat docker-compose.yml | envsubst | docker compose -f /dev/stdin up
 ```
 
 
