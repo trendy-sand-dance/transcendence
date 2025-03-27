@@ -1,28 +1,49 @@
 services:
   frontend:
-    # extends:
-    #   file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
-    #   service: frontend"
-    # build:
-    #   context: "${PATH_BUILD_FRONTEND}"
-    #   target: development
+    extends:
+      file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
+      service: frontend
+    build:
+      context: "${PATH_BUILD_FRONTEND}"
+      target: development
     image: "${PATH_IMAGE_FRONTEND}"
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
     ports:
       - "8000:3000"
+    tty: false
 
   user-management:
     extends:
-      file: ${PATH_BUILD_USER_MANAGEMENT}/docker-compose.yml
+      file: ${PATH_BUILD_USERMANAGEMENT}/docker-compose.yml
       service: user-management
     build:
-      context: "${PATH_BUILD_USER_MANAGEMENT}"
+      context: "${PATH_BUILD_USERMANAGEMENT}"
       target: development
-    image: "${PATH_IMAGE_USER_MANAGEMENT}"
+    image: "${PATH_IMAGE_USERMANAGEMENT}"
     environment:
-      LISTEN_PORT: 3001
+      LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
     ports:
-      - "8001:3001"
+      - "8001:3000"
+    tty: false
+
+  database:
+    extends:
+      file: ${PATH_BUILD_DATABASE}/docker-compose.yml
+      service: database
+    build:
+      context: "${PATH_BUILD_DATABASE}"
+      target: development
+    image: better-sqlite3
+    environment:
+      LISTEN_PORT: 3000
+      LISTEN_ADDRESS: '0.0.0.0'
+    ports:
+      - "8002:3000"
+    tty: false
+
+volumes:
+  database_data:
+
