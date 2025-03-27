@@ -1,11 +1,9 @@
 services:
   frontend:
-    # extends:
-    #   file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
-    #   service: frontend"
-    # build:
-    #   context: "${PATH_BUILD_FRONTEND}"
-    #   target: development
+    ${CONFIG_STR_FRONTEND}
+    build:
+      context: "${PATH_BUILD_FRONTEND}"
+      target: development
     image: "${PATH_IMAGE_FRONTEND}"
     environment:
       LISTEN_PORT: 3000
@@ -14,9 +12,7 @@ services:
       - "8000:3000"
 
   user-management:
-    extends:
-      file: ${PATH_BUILD_USER_MANAGEMENT}/docker-compose.yml
-      service: user-management
+    ${CONFIG_STR_USER_MANAGEMENT}
     build:
       context: "${PATH_BUILD_USER_MANAGEMENT}"
       target: development
@@ -25,4 +21,4 @@ services:
       LISTEN_PORT: 3001
       LISTEN_ADDRESS: '0.0.0.0'
     ports:
-      - "8001:3001"
+      - "8002:3001
