@@ -2,12 +2,12 @@ services:
   frontend:
 
     # UNCOMMENT - Local Build
-    extends:
-      file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
-      service: frontend
-    build:
-      context: "${PATH_BUILD_FRONTEND}"
-      target: development
+    # extends:
+    #   file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
+    #   service: frontend
+    # build:
+    #   context: "${PATH_BUILD_FRONTEND}"
+    #   target: development
     image: "${PATH_IMAGE_FRONTEND}"
     # UNCOMMENT - Local Build
 
@@ -21,12 +21,12 @@ services:
   user-management:
 
     # UNCOMMENT - Local Build
-    extends:
-      file: ${PATH_BUILD_USERMANAGEMENT}/docker-compose.yml
-      service: user-management
-    build:
-      context: "${PATH_BUILD_USERMANAGEMENT}"
-      target: development
+    # extends:
+    #   file: ${PATH_BUILD_USERMANAGEMENT}/docker-compose.yml
+    #   service: user-management
+    # build:
+    #   context: "${PATH_BUILD_USERMANAGEMENT}"
+    #   target: development
     # UNCOMMENT - Local Build
 
     image: "${PATH_IMAGE_USERMANAGEMENT}"
@@ -40,12 +40,12 @@ services:
   database:
 
     # UNCOMMENT - Local Build
-    extends:
-      file: ${PATH_BUILD_DATABASE}/docker-compose.yml
-      service: database
-    build:
-      context: "${PATH_BUILD_DATABASE}"
-      target: development
+    # extends:
+    #   file: ${PATH_BUILD_DATABASE}/docker-compose.yml
+    #   service: database
+    # build:
+    #   context: "${PATH_BUILD_DATABASE}"
+    #   target: development
     # UNCOMMENT - Local Build
 
     image: "${PATH_IMAGE_DATABASE}"

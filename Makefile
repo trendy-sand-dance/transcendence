@@ -1,7 +1,7 @@
 SHELL	:= /bin/bash
 
 up: 
-	source set-env.sh && docker-compose up
+	source set-env.sh && docker compose up
 
 clean:
 	@docker stop $$(docker ps -qa) || true

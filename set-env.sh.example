@@ -1,6 +1,0 @@
-export PATH_BUILD_FRONTEND=~/Documents/transcendence_files/frontend
-export PATH_IMAGE_FRONTEND=ghcr.io/trendy-sand-dance/frontend:main
-
-
-
-
