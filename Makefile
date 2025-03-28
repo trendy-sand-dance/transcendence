@@ -1,19 +1,7 @@
-# all:
+SHELL	:= /bin/bash
 
-# up: runprod
-# 	docker-compose up
-#
-# rundev: devbuild
-# 	docker-compose up
-#
-# runprod: prodbuild
-# 	docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
-#
-# devbuild:
-# 	docker-compose build 
-#
-# prodbuild:
-# 	docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+up: 
+	source set-env.sh && docker-compose up
 
 clean:
 	@docker stop $$(docker ps -qa) || true

@@ -1,5 +1,7 @@
 services:
   frontend:
+
+    # UNCOMMENT - Local Build
     extends:
       file: ${PATH_BUILD_FRONTEND}/docker-compose.yml
       service: frontend
@@ -7,6 +9,8 @@ services:
       context: "${PATH_BUILD_FRONTEND}"
       target: development
     image: "${PATH_IMAGE_FRONTEND}"
+    # UNCOMMENT - Local Build
+
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
@@ -15,12 +19,16 @@ services:
     tty: false
 
   user-management:
+
+    # UNCOMMENT - Local Build
     extends:
       file: ${PATH_BUILD_USERMANAGEMENT}/docker-compose.yml
       service: user-management
     build:
       context: "${PATH_BUILD_USERMANAGEMENT}"
       target: development
+    # UNCOMMENT - Local Build
+
     image: "${PATH_IMAGE_USERMANAGEMENT}"
     environment:
       LISTEN_PORT: 3000
@@ -30,13 +38,17 @@ services:
     tty: false
 
   database:
+
+    # UNCOMMENT - Local Build
     extends:
       file: ${PATH_BUILD_DATABASE}/docker-compose.yml
       service: database
     build:
       context: "${PATH_BUILD_DATABASE}"
       target: development
-    image: better-sqlite3
+    # UNCOMMENT - Local Build
+
+    image: "${PATH_IMAGE_DATABASE}"
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
