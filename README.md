@@ -10,9 +10,7 @@ For local building local images you can set the paths `set-env.sh` so docker can
 
 In the future we can run integration tests in this repo as well.
 > [!NOTE]
-> For now you'll need to manually edit the `docker-compose.yml` file to uncomment the `extends` and `build` block if you wanna build locally.
-include
-
+> For now you'll need to manually edit the `docker-compose.yml` file to uncomment the `extends` and `build` block if you wanna build locally, as well as add the paths in the set-env script
 
 ## Table of contents
 
@@ -29,8 +27,6 @@ include
 
 ### Dev usage
 Setup the paths to the locally cloned repos in a file called `set-env.sh`.
-> [!NOTE]
-> This file does not exist because it will be personal for everyone's use case, you can use `set-env.sh.example` as a starting point to create your own.
 
 Before you run any `docker compose` commands make sure to `source` the file first, this will load all the environment variables into **your** environment.
 ```
