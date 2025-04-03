@@ -8,6 +8,6 @@ export PATH_IMAGE_DATABASE=ghcr.io/trendy-sand-dance/database:main
 #  and uncomment the extend and service blocks
 
 
-# export PATH_BUILD_FRONTEND= <your local path here>
+export PATH_BUILD_FRONTEND=~/Stuff/Programming/Codam/trans_frontend
 # export PATH_BUILD_USERMANAGEMENT= <your local path here>
 # export PATH_BUILD_DATABASE= <your local path here>
