@@ -7,8 +7,8 @@ services:
     build:
       context: "${PATH_BUILD_FRONTEND}"
       target: development
-    image: "${PATH_IMAGE_FRONTEND}"
     # UNCOMMENT - Local Build
+    image: "${PATH_IMAGE_FRONTEND}"
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
@@ -52,6 +52,25 @@ services:
       DATABASE_URL: "file:/app/src/database/database.db"
     ports:
       - "8002:3000"
+    tty: false
+
+  gameserver:
+    # UNCOMMENT - Local Build
+    extends:
+      file: ${PATH_BUILD_GAMESERVER}/docker-compose.yml
+      service: gameserver
+    build:
+      context: "${PATH_BUILD_GAMESERVER}"
+      target: development
+  # UNCOMMENT - Local Build
+    image: "${PATH_IMAGE_GAMESERVER}"
+    environment:
+      LISTEN_PORT: 3000
+      LISTEN_ADDRESS: '0.0.0.0'
+      DATABASE_URL: http://database_container:3000
+      USERMANAGEMENT_URL: http://user_container:3000
+    ports:
+      - "8003:3000"
     tty: false
 
 volumes:
