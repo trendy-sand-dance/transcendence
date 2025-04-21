@@ -6,7 +6,9 @@
 # If you want to use local microservice directories for easy testing/development, set your path here
 #  and uncomment the extend and service blocks
 
-# export PATH_BUILD_FRONTEND=frontend
-# export PATH_BUILD_USERMANAGEMENT=user-management
-# export PATH_BUILD_DATABASE=database
-# export PATH_BUILD_GAMESERVER=gameserver
+export PATH_BUILD_FRONTEND=frontend
+export PATH_BUILD_USERMANAGEMENT=user-management
+export PATH_BUILD_DATABASE=database
+export PATH_BUILD_GAMESERVER=gameserver
+
+export LOCAL_IP=$(hostname -I | cut -d' ' -f1)
