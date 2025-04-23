@@ -14,6 +14,7 @@ services:
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
       USERMANAGEMENT_URL: http://user_container:3000
+      LOCAL_GAMESERVER_URL: "${LOCAL_IP}"
     ports:
       - "8000:3000"
     tty: false
