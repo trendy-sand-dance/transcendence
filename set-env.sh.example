@@ -12,4 +12,3 @@ export PATH_BUILD_DATABASE=database
 export PATH_BUILD_GAMESERVER=gameserver
 
 export LOCAL_IP=$(hostname -I | cut -d' ' -f1)
-
