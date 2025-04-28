@@ -1,8 +1,8 @@
 <div align=center>
 
-# Transcendence
+# Transcendence / Club Pong (In development...)
 A Habbo Hotel-inspired isometric world, where players can hangout, chat, and play pong in realtime against each other. 
-This repo will setup and run the services making up the transcendence project (database-service, frontend-service, gameserver-service, usermanagement-service).
+This repo will setup and run the services making up the transcendence project ([database-service](https://github.com/trendy-sand-dance/database), [frontend-service](https://github.com/trendy-sand-dance/frontend), [gameserver-service](https://github.com/trendy-sand-dance/gameserver), [usermanagement-service](https://github.com/trendy-sand-dance/user-management)).
 </div>
 
 ## About
