@@ -1,7 +1,8 @@
 <div align=center>
 
-# transcendence
-This repo will setup and run the services making up the transcendence project.
+# Transcendence
+A Habbo Hotel-inspired isometric world, where players can hangout, chat, and play pong in realtime against each other. 
+This repo will setup and run the services making up the transcendence project (database-service, frontend-service, gameserver-service, usermanagement-service).
 </div>
 
 ## About
