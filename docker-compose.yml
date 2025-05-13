@@ -74,6 +74,24 @@ services:
       - "8003:3000"
     tty: false
 
+  chat:
+    # UNCOMMENT - Local Build
+    extends:
+      file: ${PATH_BUILD_CHAT}/docker-compose.yml
+      service: chat
+    build: 
+      context: "${PATH_BUILD_CHAT}"
+      target: development
+    # UNCOMMENT - Local Build
+    image: "${PATH_IMAGE_CHAT}"
+    environment:
+      LISTEN_PORT: 3000
+      LISTEN_ADDRESS: '0.0.0.0'
+      DATABASE_URL: http://database_container:3000
+    ports:
+      - "8004:3000"
+    tty: false
+
 volumes:
   database_data:
 
