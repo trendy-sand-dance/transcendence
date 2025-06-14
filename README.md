@@ -1,9 +1,15 @@
 <div align=center>
 
-# Transcendence / Club Pong (In development...)
-A Habbo Hotel-inspired isometric world, where players can hangout, chat, and play pong in realtime against each other. 
+# Transcendence / Club Pong
+
+
+A Habbo Hotel-inspired isometric world, where players can hangout, chat, and play pong in realtime against each other.
 This repo will setup and run the services making up the transcendence project ([database-service](https://github.com/trendy-sand-dance/database), [frontend-service](https://github.com/trendy-sand-dance/frontend), [gameserver-service](https://github.com/trendy-sand-dance/gameserver), [usermanagement-service](https://github.com/trendy-sand-dance/user-management)).
 </div>
+
+> [!WARNING]
+> This project is still in early development
+
 
 ## About
 It currently only contains one `docker-compose.yml` file which pulls down the latest images.
@@ -34,10 +40,10 @@ Before you run any `docker compose` commands make sure to `source` the file firs
 source set-env.sh
 ```
 
+After that you can go ahead and hit em' the following command.
 > [!NOTE]
 > 🤓 - **Quick tip**: Arguments specified square brackets are ***optional***.
 
-After that you can go ahead and hit em' the following command.
 ```
 docker compose build [CONTAINER_NAME]
 ```
