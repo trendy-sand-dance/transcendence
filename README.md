@@ -33,14 +33,26 @@ Before you run any `docker compose` commands make sure to `source` the file firs
 ```
 source set-env.sh
 ```
+
+> [!NOTE]
+> 🤓 - **Quick tip**: Arguments specified square brackets are ***optional***.
+
 After that you can go ahead and hit em' the following command.
 ```
-docker compose build
+docker compose build [CONTAINER_NAME]
 ```
+If you wanna forcefully rebuild the container(s) you can run.
 ```
-docker compose up
+docker compose build --no-cache [CONTAINER_NAME]
 ```
-
+Actually run the container(s)
+```
+docker compose up [CONTAINER_NAME]
+```
+Cleaning up the volumes without having to rebuild the entire image
+```
+docker compose down --volumes
+```
 
 ## ⚙️  Repo configuration
 After you've created a repo based on this template you should setup the branch rules.
