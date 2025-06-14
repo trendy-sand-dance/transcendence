@@ -10,6 +10,8 @@ services:
     # UNCOMMENT - Local Build
     image: "${PATH_IMAGE_FRONTEND}"
     environment:
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
