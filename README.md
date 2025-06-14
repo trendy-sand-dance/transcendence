@@ -22,6 +22,7 @@ In the future we can run integration tests in this repo as well.
 ## Table of contents
 
 - ⚡️[Running](#features)
+  - [.env file](#env-file)
   - [Dev usage](#dev-usage)
 - ⚙️ [Repo configuration](#repo-configuration)
   - [Rebases instead of merge](#use-rebases-instead-of-merges)
@@ -31,6 +32,12 @@ In the future we can run integration tests in this repo as well.
   - [Package not building](#package-not-building)
 
 ## ⚡️ Running
+
+### .env file
+After cloning the repo rename the `.env.example` -> `.env` and set its values accordingly, docker compose will need them.
+
+#### Setup google OAuth2
+T.B.A
 
 ### Dev usage
 Setup the paths to the locally cloned repos in a file called `set-env.sh`.
