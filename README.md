@@ -37,7 +37,16 @@ In the future we can run integration tests in this repo as well.
 After cloning the repo rename the `.env.example` -> `.env` and set its values accordingly, docker compose will need them.
 
 #### Setup google OAuth2
-T.B.A
+1. go to this [link](https://console.cloud.google.com/auth/clients/751565822954-789ipckp9r3erbl966a6n8rbjp34mdcv.apps.googleusercontent.com?inv=1&invt=Ab0Q-w&project=clubpong) in google and login with the `ftclubpong` account, the credentials are stored in our notion page.
+2. Get the hostname of your machine by running `hostname` command - you can also run `hostname | xclip -selection c` to copy it directly to your clipboard.
+3. Under `Authorized JavaScript origins` set the hostname to the hostname of your local computer.
+4. Same thing for Under `Authorized redirect URIs` set the hostname to the hostname of your local computer.
+5. In `Additional information` grab the `Client ID` and `Client Secret` and put those in the .env file
+6. Save that shit and be done.
+
+
+
+
 
 ### Dev usage
 Setup the paths to the locally cloned repos in a file called `set-env.sh`.
