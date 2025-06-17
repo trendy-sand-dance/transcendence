@@ -1,4 +1,15 @@
 services:
+  caddy:
+    image: caddy
+    ports:
+      - "80:80"
+      # - "443:443" // unsure which ports to add here
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+    networks:
+      - caddy
+
   frontend:
     # UNCOMMENT - Local Build
     extends:
@@ -20,6 +31,8 @@ services:
     ports:
       - "8000:3000"
     tty: false
+    networks:
+      - caddy
 
   user-management:
     # UNCOMMENT - Local Build
@@ -38,6 +51,8 @@ services:
     ports:
       - "8001:3000"
     tty: false
+    networks:
+      - caddy
 
   database:
     # UNCOMMENT - Local Build
@@ -56,6 +71,8 @@ services:
     ports:
       - "8002:3000"
     tty: false
+    networks:
+      - caddy
 
   gameserver:
     # UNCOMMENT - Local Build
@@ -75,6 +92,8 @@ services:
     ports:
       - "8003:3000"
     tty: false
+    networks:
+      - caddy
 
   chat:
     # UNCOMMENT - Local Build
@@ -93,7 +112,12 @@ services:
     ports:
       - "8004:3000"
     tty: false
+    networks:
+      - caddy
 
 volumes:
   database_data:
+  caddy_data:
 
+networks:
+  caddy:
