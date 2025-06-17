@@ -1,30 +1,12 @@
-# POINT 1
+# point 1
 # dont necessarily need anything in the server.ts
 # but check keeping/removing the https addition in
 # fastify instance
 
-# POINT 2
+# point 2
 # caddy handles all the certs so we dont need to make
 # them ourselves, can remove mkcert + openssl stuff
 # keep openssl installation for db cause prisma
-
-# POINT 3
-# docker stuff for caddy installation (?)
-
-# POINT 4
-# check out website + frontend, what do these need to be? (in this file)
-# do we use 80:80 for our website so the requests go straight
-# via caddy?
-
-# POINT 5
-# check caddy service ports
-
-# POINT 6
-# - Your Fastify server listens on the correct port and binds to 
-#  0.0.0.0 (not just localhost) so that Caddy can reach it within 
-#  the Docker network.
-# - You set up Caddy correctly to reverse proxy requests to 
-#  your Fastify service
 
 localhost:8000 {
 	
