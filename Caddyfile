@@ -8,27 +8,32 @@
 # them ourselves, can remove mkcert + openssl stuff
 # keep openssl installation for db cause prisma
 
-localhost {
-	
+https://localhost:8000 {
+
+	handle_path /user-management/* {
+		reverse_proxy user-management:3000
+	}
+
+	handle_path /database/* {
+		reverse_proxy database:3000
+	}
+
+	handle_path /gameserver/* {
+		reverse_proxy gameserver:3000
+	}
+
+	handle_path /chat/* {
+		reverse_proxy chat:3000
+	}
+
 	handle_path /frontend/* {
 		reverse_proxy frontend:3000
 	}
 
-	handle_path /user-management/* {
-		reverse_proxy user-management:8001
+	handle_path /* {
+		reverse_proxy frontend:3000
 	}
 
-	handle_path /database/* {
-		reverse_proxy database:8002
-	}
-
-	handle_path /gameserver/* {
-		reverse_proxy gameserver:8003
-	}
-
-	handle_path /chat/* {
-		reverse_proxy chat:8004
-	}
 }
 
 

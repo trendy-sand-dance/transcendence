@@ -2,7 +2,7 @@ services:
   caddy:
     image: caddy
     ports:
-      - "7000:7000"
+      - "8000:8000"
       #- "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
@@ -20,16 +20,10 @@ services:
       target: development
     # UNCOMMENT - Local Build
     image: "${PATH_IMAGE_FRONTEND}"
+    env_file:
+      - .env
     environment:
-      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
-      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
-      LISTEN_PORT: 3000
-      LISTEN_ADDRESS: '0.0.0.0'
-      DATABASE_URL: http://database_container:3000
-      USERMANAGEMENT_URL: http://user_container:3000
       LOCAL_GAMESERVER_URL: "${LOCAL_IP}"
-    ports:
-      - "8000:3000"
     tty: false
     networks:
       - caddy
@@ -47,9 +41,7 @@ services:
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
-      DATABASE_URL: http://database_container:3000
-    ports:
-      - "8001:3000"
+      DATABASE_URL: https://database_container:3000
     tty: false
     networks:
       - caddy
@@ -68,8 +60,6 @@ services:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: "file:/app/src/database/database.db"
-    ports:
-      - "8002:3000"
     tty: false
     networks:
       - caddy
@@ -89,8 +79,6 @@ services:
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
       USERMANAGEMENT_URL: http://user_container:3000
-    ports:
-      - "8003:3000"
     tty: false
     networks:
       - caddy
@@ -109,8 +97,6 @@ services:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
-    ports:
-      - "8004:3000"
     tty: false
     networks:
       - caddy
