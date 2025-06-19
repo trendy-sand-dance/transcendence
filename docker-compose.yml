@@ -3,12 +3,13 @@ services:
     image: caddy
     ports:
       - "8000:8000"
-      #- "443:443"
+      # Caddy test page is running on `80` interally, but we just ignore that.
+      # - "8000:80"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
+    - ./Caddyfile:/etc/caddy/Caddyfile
+    - caddy_data:/data
     networks:
-      - caddy
+     - caddy
 
   frontend:
     # UNCOMMENT - Local Build
@@ -41,7 +42,7 @@ services:
     environment:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
-      DATABASE_URL: https://database_container:3000
+      DATABASE_URL: http://database_container:3000
     tty: false
     networks:
       - caddy

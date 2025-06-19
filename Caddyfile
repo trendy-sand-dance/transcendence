@@ -1,30 +1,20 @@
-# point 1
-# dont necessarily need anything in the server.ts
-# but check keeping/removing the https addition in
-# fastify instance
+localhost:8000 {
 
-# point 2
-# caddy handles all the certs so we dont need to make
-# them ourselves, can remove mkcert + openssl stuff
-# keep openssl installation for db cause prisma
-
-https://localhost:8000 {
-
-	handle_path /user-management/* {
-		reverse_proxy user-management:3000
-	}
-
-	handle_path /database/* {
-		reverse_proxy database:3000
-	}
-
-	handle_path /gameserver/* {
-		reverse_proxy gameserver:3000
-	}
-
-	handle_path /chat/* {
-		reverse_proxy chat:3000
-	}
+	# handle_path /user-management/* {
+	# 	reverse_proxy user-management:3000
+	# }
+	#
+	# handle_path /database/* {
+	# 	reverse_proxy database:3000
+	# }
+	#
+	# handle_path /gameserver/* {
+	# 	reverse_proxy gameserver:3000
+	# }
+	#
+	# handle_path /chat/* {
+	# 	reverse_proxy chat:3000
+	# }
 
 	handle_path /frontend/* {
 		reverse_proxy frontend:3000
@@ -35,65 +25,3 @@ https://localhost:8000 {
 	}
 
 }
-
-
-
-
-# random shit just ignore for now
-
-
-# centralized configuration to have caddy https-ing all over the shop
-#yourdomain.com {
-
-#	handle_path /serviceA/* {
-#		reverse_proxy serviceA:8080
-#	}
-
-#	handle_path /serviceB/* {
-#		reverse_proxy serviceB:8081
-#	}
-
-#	handle_path /serviceC/* {
-#		reverse_proxy serviceC:8082
-#	}
-#}
-# service names the same as services in docker-com
-
-
-# basic caddy doc gives the port like this with the reverse_proxy port underneath
-#:8002
-
-# would this work for multiple ports?
-#reverse_proxy :8000
-#reverse_proxy :8001
-#reverse_proxy :8003
-#reverse_proxy :8004
-
-# this way to add multiple ports?
-# https://localhost:8002 {
-# 	reverse_proxy :8000
-# 	reverse_proxy :8001
-# 	reverse_proxy :8003
-# 	reverse_proxy :8004
-# }
-
-# add localhost?
-# https://localhost:8002 {
-# 	reverse_proxy localhost:8000
-# 	reverse_proxy localhost:8001
-# 	reverse_proxy localhost:8003
-# 	reverse_proxy localhost:8004
-# }
-
-
-# handle_path 
-#handle_path /jellyfin/* {
-#	reverse_proxy localhost:8096
-#}
-
-
-# basics Caddyfile
-
-#localhost
-
-#respond "Hello world"
