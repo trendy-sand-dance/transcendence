@@ -1,21 +1,5 @@
 localhost:8000 {
 
-	# handle_path /user-management/* {
-	# 	reverse_proxy user-management:3000
-	# }
-	#
-	# handle_path /database/* {
-	# 	reverse_proxy database:3000
-	# }
-	#
-	# handle_path /gameserver/* {
-	# 	reverse_proxy gameserver:3000
-	# }
-	#
-	# handle_path /chat/* {
-	# 	reverse_proxy chat:3000
-	# }
-
 	handle_path /frontend/* {
 		reverse_proxy frontend:3000
 	}
