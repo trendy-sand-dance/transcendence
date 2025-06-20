@@ -8,4 +8,12 @@ localhost:8000 {
 		reverse_proxy frontend:3000
 	}
 
+	handle /ws-gameserver* {
+		reverse_proxy gameserver:3000
+	}
+
+	handle /ws-chatserver* {
+		reverse_proxy chat:3000
+	}
+
 }
