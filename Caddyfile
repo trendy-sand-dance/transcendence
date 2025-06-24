@@ -1,4 +1,4 @@
-localhost:8000 {
+clubpong.com:8000 {
 
 	handle_path /frontend/* {
 		reverse_proxy frontend:3000
