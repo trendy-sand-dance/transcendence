@@ -1,0 +1,19 @@
+clubpong.com:8000 {
+
+	handle_path /frontend/* {
+		reverse_proxy frontend:3000
+	}
+
+	handle_path /* {
+		reverse_proxy frontend:3000
+	}
+
+	handle /ws-gameserver* {
+		reverse_proxy gameserver:3000
+	}
+
+	handle /ws-chatserver* {
+		reverse_proxy chat:3000
+	}
+
+}

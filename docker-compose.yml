@@ -1,4 +1,16 @@
 services:
+  caddy:
+    image: caddy
+    ports:
+      - "8000:8000"
+      # Caddy test page is running on `80` interally, but we just ignore that.
+      # - "8000:80"
+    volumes:
+    - ./Caddyfile:/etc/caddy/Caddyfile
+    - caddy_data:/data
+    networks:
+     - caddy
+
   frontend:
     # UNCOMMENT - Local Build
     extends:
@@ -9,17 +21,13 @@ services:
       target: development
     # UNCOMMENT - Local Build
     image: "${PATH_IMAGE_FRONTEND}"
+    env_file:
+      - .env
     environment:
-      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
-      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
-      LISTEN_PORT: 3000
-      LISTEN_ADDRESS: '0.0.0.0'
-      DATABASE_URL: http://database_container:3000
-      USERMANAGEMENT_URL: http://user_container:3000
       LOCAL_GAMESERVER_URL: "${LOCAL_IP}"
-    ports:
-      - "8000:3000"
     tty: false
+    networks:
+      - caddy
 
   user-management:
     # UNCOMMENT - Local Build
@@ -35,9 +43,9 @@ services:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
-    ports:
-      - "8001:3000"
     tty: false
+    networks:
+      - caddy
 
   database:
     # UNCOMMENT - Local Build
@@ -53,9 +61,9 @@ services:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: "file:/app/src/database/database.db"
-    ports:
-      - "8002:3000"
     tty: false
+    networks:
+      - caddy
 
   gameserver:
     # UNCOMMENT - Local Build
@@ -72,9 +80,9 @@ services:
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
       USERMANAGEMENT_URL: http://user_container:3000
-    ports:
-      - "8003:3000"
     tty: false
+    networks:
+      - caddy
 
   chat:
     # UNCOMMENT - Local Build
@@ -90,10 +98,13 @@ services:
       LISTEN_PORT: 3000
       LISTEN_ADDRESS: '0.0.0.0'
       DATABASE_URL: http://database_container:3000
-    ports:
-      - "8004:3000"
     tty: false
+    networks:
+      - caddy
 
 volumes:
   database_data:
+  caddy_data:
 
+networks:
+  caddy:
